@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  mysql:
+    container_name: mysql_db
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: use
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    expose:
+      - 3306

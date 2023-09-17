@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  pgdb:
+    container_name: pg_db_container
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: your_database_name
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./cozii_db:/var/lib/postgresql/data/
+    expose:
+      - 5432
+  adminer:
+    container_name: adminer_view
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
